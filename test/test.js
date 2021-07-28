@@ -22,7 +22,7 @@ contract('DVideo', ([deployer, author]) => {
 
     it('has a name', async () => {
       const name = await dvideo.name()
-      assert.equal(name, 'DVideo')
+      assert.equal(name, 'FairyTube')
     })
   })
 

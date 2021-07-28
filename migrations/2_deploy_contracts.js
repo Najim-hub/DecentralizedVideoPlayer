@@ -1,5 +1,5 @@
-const DVideo = artifacts.require("DVideo");
+const FairyTube = artifacts.require("FairyTube");
 
 module.exports = function(deployer) {
-  deployer.deploy(DVideo);
+  deployer.deploy(FairyTube);
 };

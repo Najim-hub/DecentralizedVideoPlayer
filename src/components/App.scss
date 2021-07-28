@@ -1,0 +1,146 @@
+/* Styles go here */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Style+Script&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+
+  -webkit-tap-highlight-color: transparent; 
+  }
+
+input[type=file]{
+    width:120px;
+
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90vh;
+    font-family: 'Roboto', sans-serif;
+    
+  }
+  
+  input[type="file"] {
+   
+    font-size: 15px;
+    color: rgb(153, 153, 153);
+    font-family: 'Roboto', sans-serif;
+    
+  }
+  
+  Button { outline: none;
+    font-family: 'Roboto', sans-serif;
+    }
+//=== Drawing effect
+
+@mixin btn-border-drawing($color: #ccc, $hover: #000000, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+  outline: none;
+  
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+    #{$vertical}: 0; 
+    #{$horizontal}: 0;
+    font-family: 'Roboto', sans-serif;
+    
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+  
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+  
+  &:hover {
+    color: $hover;
+    
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+     
+    }
+    
+    &::before { transition-delay: 0s, 0s, $duration; }
+    
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
+.draw-border {
+  @include btn-border-drawing(#261d01, #ab8509, 2px, bottom, right);
+  
+}
+
+//=== Button styling, semi-ignore
+
+.myBtun,
+.btn { 
+  background: none;
+  border: rgb(0, 0, 0);
+  cursor: pointer;
+  line-height: 1;
+  //font: 500 1.2rem 'Roboto Slab', sans-serif;
+  padding: 0.5em 1em;
+  letter-spacing: 0.05rem;
+  box-shadow:7px 7px 30px rgba(0,0,0,0.12);
+  
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+* {
+  box-sizing:border-box;
+}
+
+input[type=text] {
+  width:200px;
+  resize: vertical;
+  padding:15px;
+  border-radius:15px;
+  border:5px;
+  box-shadow:7px 7px 30px rgba(0,0,0,0.16);
+  height:50px;
+  -webkit-tap-highlight-color: rgba(233, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+
+  outline: none;
+
+}
+
+button,
+textarea,
+input,
+select,
+a{
+ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ -webkit-tap-highlight-color: transparent;
+ -webkit-user-select: none;
+ -khtml-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
+  user-select: none;
+
+}
+
+
